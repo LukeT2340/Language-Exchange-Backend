@@ -2,10 +2,12 @@
 import express, { Request, Response } from 'express'
 const cors = require('cors')
 const mongoose = require('mongoose')
+const userRoutes = require('./routers/userRoutes')
+
 require("dotenv").config()
 
 // Connection URI for your MongoDB database
-const mongoURI = process.env.mongooseURI || ""
+const mongoURI = process.env.MONGOOSE_URI || ""
 
 // Connect to MongoDB
 mongoose.connect(mongoURI, {
@@ -40,10 +42,8 @@ app.use(cors({
 
 const port = process.env.PORT || 3000;
 
-// Define a route handler for the root path
-app.get('/', (req: Request, res: Response) => {
-    res.send('Hello World!')
-});
+// Use user routes
+app.use('/user', userRoutes)
 
 // Start the Express server
 app.listen(port, () => {

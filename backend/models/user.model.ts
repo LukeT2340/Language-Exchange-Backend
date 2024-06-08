@@ -2,13 +2,13 @@
 import mongoose, { Document, Schema } from 'mongoose'
 
 // User document interface
-interface UserDocument extends Document {
-    email: string,
-    facebookId: string,
-    googleId: string,
-    wechatId: string,
-    appleId: string,
-    profilePictureUrl: string,
+export interface UserDocument extends Document {
+    _id:  Schema.Types.ObjectId,
+    email?: string,
+    facebookId?: string,
+    googleId?: string,
+    wechatId?: string,
+    appleId?: string,
     username: string,
     password: string,
     createdAt: Date,
@@ -22,10 +22,9 @@ const userSchema = new Schema<UserDocument>({
     googleId: { type: String }, // If user signed up with gmail
     wechatId: { type: String }, // If user signed up with wechat
     appleId: { type: String }, // If user signed up with apple
-    profilePictureUrl: { type: String, require: true },
     username: { type: String, require: true},
     password: { type: String, require: true},
-    createdAt: { type: Date, default: new Date()},
+    createdAt: { type: Date, require: true, default: new Date()},
     updatedAt: { type: Date, require: true}
 })
 
