@@ -2,7 +2,7 @@
 import express, { Request, Response } from 'express'
 const cors = require('cors')
 const mongoose = require('mongoose')
-const userRoutes = require('./routers/userRoutes')
+const accountRoutes = require('./routers/accountRoutes')
 
 require("dotenv").config()
 
@@ -42,8 +42,8 @@ app.use(cors({
 
 const port = process.env.PORT || 3000;
 
-// Use user routes
-app.use('/user', userRoutes)
+// Use account routes
+app.use('/account', accountRoutes)
 
 // Start the Express server
 app.listen(port, () => {
