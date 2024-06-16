@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  LanguageApp
+
+  Created by Luke Thompson on 11/6/2024.
+  
+*/
+
+"error: account-doesnt-exist" = "This email isn't associated with an account";
+"test" = "tesstyy";
